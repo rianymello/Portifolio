@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/project-img1.png";
@@ -8,38 +9,63 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const projects = [
+  const projectsTab1 = [
     {
-      title: "Business Startup",
+      title: "Business Startup 1",
       description: "Design & Development",
       imgUrl: projImg1,
     },
     {
-      title: "Business Startup",
+      title: "Business Startup 2",
       description: "Design & Development",
       imgUrl: projImg2,
     },
     {
-      title: "Business Startup",
+      title: "Business Startup 3",
       description: "Design & Development",
       imgUrl: projImg3,
     },
+    // Add more projects as needed
+  ];
+
+  const projectsTab2 = [
     {
-      title: "Business Startup",
+      title: "Business Startup 4",
       description: "Design & Development",
       imgUrl: projImg1,
     },
     {
-      title: "Business Startup",
+      title: "Business Startup 5",
       description: "Design & Development",
       imgUrl: projImg2,
     },
     {
-      title: "Business Startup",
+      title: "Business Startup 6",
       description: "Design & Development",
       imgUrl: projImg3,
     },
+    // Add more projects as needed
+  ];
+
+  const projectsTab3 = [
+    {
+      title: "Business Startup 7",
+      description: "Design & Development",
+      imgUrl: projImg1,
+    },
+    {
+      title: "Business Startup 8",
+      description: "Design & Development",
+      imgUrl: projImg2,
+    },
+    {
+      title: "Business Startup 9",
+      description: "Design & Development",
+      imgUrl: projImg3,
+    },
+    // Add more projects as needed
   ];
 
   return (
@@ -47,11 +73,14 @@ export const Projects = () => {
       <Container>
         <Row>
           <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+            <TrackVisibility onChange={(isVisible) => setIsVisible(isVisible)}>
+              <div className={`animate__animated ${isVisible ? "animate__fadeIn" : ""}`}>
                 <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
@@ -67,32 +96,42 @@ export const Projects = () => {
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                     <Tab.Pane eventKey="first">
                       <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
+                        {projectsTab1.map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
                       </Row>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                    <Tab.Pane eventKey="second">
+                      <Row>
+                        {projectsTab2.map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
+                      </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                      <Row>
+                        {projectsTab3.map((project, index) => (
+                          <ProjectCard
+                            key={index}
+                            {...project}
+                          />
+                        ))}
+                      </Row>
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
-              </div>}
+              </div>
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt="Background" />
     </section>
-  )
-}
+  );
+};
