@@ -14,18 +14,13 @@ export const Projects = () => {
 
   const projectsTab1 = [
     {
-      title: "Business Startup 1",
-      description: "Design & Development",
+      title: "React ignite",
+      description: "Um feed de postagens interativo",
       imgUrl: projImg1,
     },
     {
-      title: "Business Startup 2",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup 3",
-      description: "Design & Development",
+      title: "Minhas pizzas",
+      description: "Um site de vendas de pizzas",
       imgUrl: projImg3,
     },
   
@@ -33,50 +28,24 @@ export const Projects = () => {
 
   const projectsTab2 = [
     {
-      title: "Business Startup 4",
-      description: "Design & Development",
+      title: "Pegada ecológica",
+      description: "Um site informativo",
       imgUrl: projImg1,
     },
     {
-      title: "Business Startup 5",
-      description: "Design & Development",
+      title: "O que é um técnico de informática",
+      description: "Um site informativo",
       imgUrl: projImg2,
     },
-    {
-      title: "Business Startup 6",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    }, 
-    {
-      title: "Business Startup 6",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-   
   ];
 
   const projectsTab3 = [
-    {
-      title: "Business Startup 7",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup 8",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup 9",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-   
+    /*Em breve será adicionado algo aqui */
   ];
 
-  const tab1Text = "Esses são alguns dos projetos que eu venho desenvolvendo por sozinha.";
-  const tab2Text = "Esses são alguns dos projetos que desenvolvi durante meu curso de gestão e programção de sistemas informáticos.";
-  const tab3Text = "Esses são outros projetos também desenvolvidos por mim.";
+  const tab1Text = "Projetos que eu venho desenvolvendo por sozinha.";
+  const tab2Text = "Projetos que desenvolvi durante meu curso de gestão e programção de sistemas informáticos.";
+  const tab3Text = "Projetos também desenvolvidos por mim.";
 
   const currentTabText = activeTab === "first" ? tab1Text : activeTab === "second" ? tab2Text : tab3Text;
 
