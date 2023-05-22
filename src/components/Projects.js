@@ -7,10 +7,14 @@ import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import ReactModal from "react-modal";
+import  ProjectModal from "./ProjectModal";
 
 export const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("first");
+  const [selectedModalProject, setSelectedModalProject] = useState(null);
+
 
   const projectsTab1 = [
     {
@@ -49,6 +53,13 @@ export const Projects = () => {
 
   const currentTabText = activeTab === "first" ? tab1Text : activeTab === "second" ? tab2Text : tab3Text;
 
+  const handleProjectClick = (project) => {
+    setSelectedModalProject(project);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedModalProject(null);
+  };
 
   return (
     <section className="project" id="project">
@@ -80,6 +91,8 @@ export const Projects = () => {
                           <ProjectCard
                             key={index}
                             {...project}
+                            onClick={() => handleProjectClick(project)}
+
                           />
                         ))}
                       </Row>
@@ -90,6 +103,8 @@ export const Projects = () => {
                           <ProjectCard
                             key={index}
                             {...project}
+                            onClick={() => handleProjectClick(project)}
+
                           />
                         ))}
                       </Row>
@@ -100,6 +115,8 @@ export const Projects = () => {
                           <ProjectCard
                             key={index}
                             {...project}
+                            onClick={() => handleProjectClick(project)}
+
                           />
                         ))}
                       </Row>
@@ -112,6 +129,23 @@ export const Projects = () => {
         </Row>
       </Container>
       <img className="background-image-right" src={colorSharp2} alt="Background" />
+
+          
+        
+      <ReactModal
+        isOpen={!!selectedModalProject}
+        onRequestClose={handleCloseModal}
+        contentLabel="Project Modal"
+        ariaHideApp={false}
+      >
+        {selectedModalProject && (
+          <ProjectModal
+            isOpen={true}
+            closeModal={handleCloseModal}
+            project={selectedModalProject}
+          />
+        )}
+      </ReactModal>
     </section>
   );
 };
