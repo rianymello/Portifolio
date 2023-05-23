@@ -294,7 +294,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .banner img {
   animation: updown 3s linear infinite;
-  width: 70%;
+  width: 90%;
 }
 @keyframes updown {
     0% {
@@ -483,7 +483,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 60px 0 200px 0;
 }
 .contact img {
-  width: 92%;
+  width: 70%;
 }
 .contact h2 {
 	font-size: 45px;
